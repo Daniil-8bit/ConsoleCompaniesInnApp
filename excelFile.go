@@ -6,7 +6,7 @@ import (
 	"github.com/tealeg/xlsx"
 )
 
-func readData() {
+func ReadData() {
 
 	fileName := ""
 	filename += ".xlsx"

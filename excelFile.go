@@ -8,23 +8,20 @@ import (
 
 func ReadData() {
 
-	fileName := ""
-	filename += ".xlsx"
+	var confData ConfigData
 
-	xl, err := xlsx.OpenFile(fileName)
+	readFileData(confData)
+
+	xl, err := xlsx.OpenFile(confData.FileName)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	fullPathFile := ""
-	sheetName := ""
-	linesAmount := 1
+	sheet := xl.Sheet[confData.SheetName]
 
-	sheet := xl.Sheet[sheetName]
+	defer xl.Save(confData.FullFilePath + "\\" + confData.FileName)
 
-	defer xl.Save(fullPathFile)
-
-	for j := 0; j < linesAmount; j++ {
+	for j := confData.StartCell; j < confData.EndCell; j++ {
 		cell := sheet.Cell(j, 0)
 		tempVal := cell.Value
 

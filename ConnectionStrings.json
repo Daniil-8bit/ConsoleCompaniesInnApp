@@ -1,0 +1,7 @@
+{
+    "fileName":"testFile.xlsx",
+    "fullFilePath":"C:\\Go\\go1.23.4\\RepeatProject",
+    "sheetName":"Лист 1",
+    "startCell": 1,
+    "endCell": 9000
+}
